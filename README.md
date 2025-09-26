@@ -1,5 +1,7 @@
 # grafana-keycloak
-enablement material for SSO setup between Grafana and Keycloak
+This repo contains enablement material for SSO setup between Grafana and Keycloak.
+
+<br>
 
 ## Summary
 
@@ -8,13 +10,22 @@ you can see a working environment.
 
 Your Keycloak instance will run on an AWS EC2 VM, while Grafana will run first on localhost, and then optionally in Grafana Cloud.
 
+Keycloak will run with a self-signed certificate; easy setup instructions for this are provided, and in fact [directly based on Keycloak's online documentation](https://www.keycloak.org/server/containers#_writing_your_optimized_keycloak_containerfile).
+
 With Grafana on localhost and Keycloak on EC2, you will have access to both sets of logs, for visibility into issues such as misconfigurations.
 
-The section on Keycloak will include instructions for helping you be sure that your Keycloak instance is only accessible from the IP addresses you select (your home, Grafana Cloud, etc.)
-
-This is a first draft of these notes and therefore will be somewhat terse, assuming you know are bringing some prerequisite knowledge. Later versions of this may expand to add more enablement content on the prerequisites but no promises are made as of now.
+These instructions will include guidance to help you be sure that your EC2 Keycloak instance is only accessible from the IP addresses you select (your office or home, Grafana Cloud, etc.)
 
 Wherever possible, automation solutions will be used, for example Docker Compose and Terraform.
+
+<br>
+
+### A few more notes:
+
+> By putting Grafana on localhost, and Keycloak on EC2, your networking can be very simple for OIDC: both the browser and Grafana can use the remote EC2 address for their respective roles (browser redirection, API calls), without you needing to manage a more complex networking setup. (You are more than welcome to try other ways of doing this if you are comfortable with the networking requirements.)
+
+> This is a first draft of these notes and therefore will be somewhat terse, assuming you know are bringing some prerequisite knowledge. Later versions of this may expand to add more enablement content on the prerequisites but no promises are made as of now.
+
 
 <br><br>
 ## EC2 setup
@@ -25,9 +36,17 @@ You will need one EC2 instance. Here is what I have tested with:
 - Instance type: t2.small
 - Storage: 16 GiB (could probably be smaller but haven't tested)
 
-I will come back to the topic of inbound rules; for now just enable 22 (SSH) and 8443 (Custom TCP) for "My IP Address" and no others.
+We will come back to the topic of Security Groups and inbound rules; for now just enable 22 (SSH) and 8443 (Custom TCP), both allowing "My IP" and no other IP addresses.
 
-Boot the VM and log into it, then I recommend running ```sudo apt-get update``` upon first arrival.
+Boot the VM, use the AWS instructions to SSH onto it, and I recommend running ```sudo apt-get update``` upon first arrival.
+
+
+<br><br>
+## Optional: Elastic IP
+
+It can be helpful to allocate a fixed IP address, and associate it with this EC2 VM. If you don't, and you shut down the VM, you will have a new IP address upon next boot, and then have to change your OpenID configuration to reflect this. Using a static IP address helps eliminate this problem.
+
+If you take this step, you will need to reboot the VM once, so that the static IP becomes associated to it.
 
 
 <br><br>
@@ -44,5 +63,29 @@ For Docker Compose, I recommend following [the instructions on this page](https:
 I recommend doing this in the ubuntu user's home directory, as follows:
 ```git clone https://github.com/danstadler-pdx/grafana-keycloak.git```
 
+cd into the directory "grafana-keycloak".
 
+
+<br><br>
+## Build the keycloak docker image, including the self-signed certificate.
+
+cd into the directory "docker", then cd into the directory "keycloak".
+
+Edit the Dockerfile in this directory. You need to modify the content of the line which starts with:
+```RUN keytool -genkeypair```
+
+When you first check out this repo, that line should have a section in it like this:
+```-ext "SAN:c=DNS:localhost,IP:127.0.0.1"```
+
+You need to add the IP address of your EC2 VM. This can either be the ephemeral address it gets upon boot, or the static IP you've allocated and associated to the VM. Using both of those examples, the content for -ext can look like either of these (use your own actual values taken from the EC2 UI:
+
+```-ext "SAN:c=DNS:localhost,IP:127.0.0.1,DNS:ec2-23-19-184-210.us-west-1.compute.amazonaws.com"``` 
+
+(ephemeral IP, and noted by "DNS")
+
+or:
+
+```-ext "SAN:c=DNS:localhost,IP:127.0.0.1,IP:59.62.136.115"```
+
+(static IP, and noted by "IP")
 
