@@ -1,0 +1,33 @@
+services:
+
+  # this is old: update
+  keycloak:
+    image: mykeycloak
+    container_name: keycloak
+    command: start-dev
+    ports:
+      - '8443:8443'
+      - '9000:9000'
+    volumes:
+      - keycloak-data:/opt/keycloak/data/
+    environment:
+      KC_BOOTSTRAP_ADMIN_USERNAME: 
+      KC_BOOTSTRAP_ADMIN_PASSWORD: 
+      KC_LOG_LEVEL: debug
+      KC_METRICS_ENABLED: 'true'
+      KC_HEALTH_ENABLED: 'true'
+
+volumes:
+  keycloak-data: {}
+
+  # keycloak-insecure:
+  #   image: quay.io/keycloak/keycloak:latest
+  #   container_name: keycloak
+  #   command: start-dev
+  #   ports:
+  #     - '8080:8080'
+  #   volumes:
+  #     - keycloak-data:/opt/keycloak/data/
+  #   environment:
+  #     KC_BOOTSTRAP_ADMIN_USERNAME: 
+  #     KC_BOOTSTRAP_ADMIN_PASSWORD: 
