@@ -61,6 +61,7 @@ For Docker Compose, I recommend following [the instructions on this page](https:
 ## Clone this repo onto the VM
 
 I recommend doing this in the ubuntu user's home directory, as follows:
+
 ```git clone https://github.com/danstadler-pdx/grafana-keycloak.git```
 
 cd into the directory "grafana-keycloak".
@@ -72,9 +73,11 @@ cd into the directory "grafana-keycloak".
 cd into the directory "docker", then cd into the directory "keycloak".
 
 Edit the Dockerfile in this directory. You need to modify the content of the line which starts with:
+
 ```RUN keytool -genkeypair```
 
 When you first check out this repo, that line should have a section in it like this:
+
 ```-ext "SAN:c=DNS:localhost,IP:127.0.0.1"```
 
 You need to add the IP address of your EC2 VM. This can either be the ephemeral address it gets upon boot, or the static IP you've allocated and associated to the VM.
@@ -83,11 +86,11 @@ Based on that choice, the content for ```-ext``` can look like either of the 2 o
 
 <br>
 
-*(if using an ephemeral IP, noted by "DNS"):*
+*(if using an ephemeral IP: see the "DNS:" entry at the end of the list):*
 
 ```-ext "SAN:c=DNS:localhost,IP:127.0.0.1,DNS:ec2-23-19-184-210.us-west-1.compute.amazonaws.com"``` 
 
-*(if using static IP, noted by "IP"):*
+*(if using a static IP: see the second "IP" entry, at the end of the list):*
 
 ```-ext "SAN:c=DNS:localhost,IP:127.0.0.1,IP:59.62.136.115"```
 
@@ -98,11 +101,13 @@ Make that change and save Dockerfile.
 <br><br>
 
 Then, in the same directory as the Dockerfile, run the following command:
+
 ``` docker build . -t mykeycloak ```
 
-When this is done, cd back up one level, i.e. to the root of the cloned project.
+When the build is done, cd back up one level, i.e. to the root of the cloned project.
 
-Before doing the next step; at the current directory level, run this command:
+Before doing the next step: at the root of the cloned project, run this command:
+
 ```mkdir keycloak-data```
 
 <br>
@@ -128,6 +133,10 @@ mykeycloak \
 start-dev
 ```
 
-Once this is completed, you should have a running Docker container called "mykeycloak". If you are using the ```-d``` arg and you'd like to see the logs, you can run ```docker logs mykeycloak -f``` and you will be tailing the container logs.
+Once this is completed, you should have a running Docker container called "mykeycloak". If you are using the ```-d``` arg and you'd like to see the logs, you can run 
+
+```docker logs mykeycloak -f``` 
+
+and you will be tailing the container logs. (It can also be helpful to have a second terminal window open on the same VM, and run the ```docker logs``` command there, while using the first terminal for other work on the VM.)
 
 
