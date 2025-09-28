@@ -26,7 +26,7 @@ For this project:
 - Grafana will be in the role of "RP" - the party that relies on some other entity to manage authentication, and provide authorization information about the authenticated user.
 - Keycloak will be in the combined role of "OP" (OpenID Connect Provider), and "IDP" (Identity Provider).
 
-So Keycloak will not only provide the database of users whom we want logging in to Grafana, it will also provide the OpenID Connect API, creating/providing such things as tokens (access tokens, retry tokens, etc.), and an API which Grafana where Grafana can use these tokens in various ways.
+So Keycloak will not only provide the database of users whom we want logging in to Grafana, it will also function as the OpenID Connect Provider, creating/providing such things as tokens (access tokens, retry tokens, etc.), and an API where Grafana can use these tokens in various ways.
 
 
 
@@ -54,7 +54,15 @@ In addition, these instructions will include guidance to help you be sure that y
 
 [Grafana setup on localhost](./documentation/grafana-localhost-setup.md)
 
+[Create a realm, user, and 2 clients in Keycloak](./documentation/keycloak-configuration.md)
 
+[Configure Generic OAuth in Grafana](./documentation/grafana-configuration.md)
+
+[General testing](./documentation/general-testing.md)
+
+[Try breaking some things](./documentation/try-breaking-some-things.md)
+
+[Try switching to Grafana Cloud](./documentation/switch-to-grafana-cloud.md)
 
 
 <br><br><br><br><br>
