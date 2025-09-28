@@ -7,7 +7,7 @@ This repo contains enablement material for SSO setup between Grafana and Keycloa
 
 This project helps you quickly set up Grafana and Keycloak (no licensing required), and then easily provision them so that you can have your own complete SSO-enabled environment. You can then use this as a testbed and learning space. For example: you can try things like intentionally breaking your configuration, and seeing the results in Grafana or Keycloak application logs right away.
 
-With Grafana running on localhost, and Keycloak running on EC2, your networking will be very simple to manage. However, you can also use this project with Grafana running in Grafana Cloud. This documentation will first show you the localhost setup of Grafana, and then show you the steps required to switch to Grafana Cloud, while still using your EC2-based Keycloak instance as the OpenID Connect provider.
+With Grafana running on your own machine, and Keycloak running on EC2, your networking will be very simple to manage. However, you can also use this project with Grafana running in Grafana Cloud. This documentation will first have you run Grafana on your own machine, and then show you the steps required to switch to Grafana Cloud, while still using your EC2-based Keycloak instance as the OpenID Connect provider.
 
 Wherever possible, automation solutions will be used, for example Docker Compose and Terraform.
 
@@ -37,7 +37,7 @@ So Keycloak will not only provide the database of users whom we want logging in 
 
 ### Simple network setup
 
-By putting Grafana on localhost, and Keycloak on EC2, your networking can be very simple for OIDC: both the browser and Grafana can use the remote EC2 address for their respective roles (browser redirection, API calls), without you needing to manage a more complex networking setup. (You are more than welcome to try other ways of doing this if you are comfortable with the networking requirements.)
+By putting Grafana on your own machine, and Keycloak on EC2, your networking can be very simple for OIDC: both the browser and Grafana can use the remote EC2 address for their respective roles (browser redirection, API calls), without you needing to manage a more complex networking setup. (You are more than welcome to try other ways of doing this if you are comfortable with the networking requirements.)
 
 ### Secure communications
 
@@ -52,7 +52,7 @@ In addition, these instructions will include guidance to help you be sure that y
 
 [Keycloak setup on EC2](./documentation/keycloak-EC2-setup.md)
 
-[Grafana setup on localhost](./documentation/grafana-localhost-setup.md)
+[Grafana setup on your machine](./documentation/grafana-localhost-setup.md)
 
 [Create a realm, user, and 2 clients in Keycloak](./documentation/keycloak-configuration.md)
 
