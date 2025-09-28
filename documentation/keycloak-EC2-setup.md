@@ -1,7 +1,7 @@
 # Keycloak setup on EC2
 
 <br><br>
-## EC2 instance
+## Create an EC2 instance
 
 You will need one EC2 instance. Here is what I have tested with:
 
@@ -15,7 +15,7 @@ Boot the VM, use the AWS instructions to SSH onto it, and I recommend running ``
 
 
 <br><br>
-## Optional: Elastic IP
+## Recommended: use an Elastic IP
 
 It can be helpful to allocate a fixed IP address, and associate it with this EC2 VM. If you don't, and you shut down the VM, you will have a new IP address upon next boot, and then have to change your OpenID configuration to reflect this. Using a static IP address helps eliminate this problem.
 
@@ -23,7 +23,7 @@ If you take this step, you will need to reboot the VM once, so that the static I
 
 
 <br><br>
-## Docker and Docker Compose on the EC2 VM
+## Install Docker and Docker Compose on the EC2 VM
 
 For Docker, I recommend following [the instructions on this page](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-22-04), until you have completed and tested Step 2 (running docker without Sudo).
 
@@ -37,13 +37,13 @@ I recommend doing this in the ubuntu user's home directory, as follows:
 
 ```git clone https://github.com/danstadler-pdx/grafana-keycloak.git```
 
-cd into the directory "grafana-keycloak".
+Then cd into the directory "grafana-keycloak".
 
 
 <br><br>
 ## Build the keycloak docker image, including the self-signed certificate.
 
-cd into the directory "docker", then cd into the directory "keycloak".
+First cd into the directory "docker", then cd into the directory "keycloak".
 
 Edit the Dockerfile in this directory. You need to modify the content of the line which starts with:
 
