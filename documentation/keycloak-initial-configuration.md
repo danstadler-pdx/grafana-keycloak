@@ -52,7 +52,7 @@ In the "General settings" form, you can provide ```confidential-client-localhost
 
 ### Capability config
 
-In "Capability config, enable "Client authentication", "Direct access grants", and "Service accounts roles"
+In "Capability config", enable "Client authentication", "Direct access grants", and "Service accounts roles".
 
 ![image not found](../documentation/images/create-client-capability-config.png "Create a realm")
 
