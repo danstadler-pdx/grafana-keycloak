@@ -26,17 +26,18 @@ Then cd into the directory "grafana-keycloak".
 
 <br><br>
 
-## Configure and run Grafana
+## Configure Grafana
 
 To do this, cd into the directory "docker", then cd into the directory "grafana".
 
-In that folder is a Docker Compose file. Edit the file, providing a password for the env var 
-
-```GF_SECURITY_ADMIN_PASSWORD```
-
-(Feel free to also change the admin username if you want.)
+In that folder is a Docker Compose file. Edit the file, providing a password for the env var ```GF_SECURITY_ADMIN_PASSWORD```. (Feel free to also change the admin username if you want.)
 
 Save the file.
+
+
+<br><br>
+
+## Run Grafana
 
 Still in the docker/grafana directory, run: 
 
