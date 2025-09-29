@@ -52,7 +52,7 @@ In addition, these instructions will include guidance to help you be sure that y
 
 [Keycloak setup on EC2](./documentation/keycloak-EC2-setup.md)
 
-[Grafana setup on your machine](./documentation/grafana-localhost-setup.md)
+[Grafana setup on your machine](./documentation/grafana-local-machine-setup.md)
 
 [Create a realm, user, and 2 clients in Keycloak](./documentation/keycloak-configuration.md)
 
