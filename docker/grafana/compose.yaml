@@ -11,7 +11,7 @@ services:
       # Optional: Configure environment variables for Grafana
       - GF_LOG_LEVEL=info
       - GF_SECURITY_ADMIN_USER=admin
-      - GF_SECURITY_ADMIN_PASSWORD=asdfasdf
+      - GF_SECURITY_ADMIN_PASSWORD=[replace with a password of your choosing]
 
 volumes:
   grafana-storage: {}
