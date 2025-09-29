@@ -69,15 +69,13 @@ Based on that choice, the content for ```-ext``` can look like either of the 2 o
 
 <br>
 
-Make that change and save Dockerfile.
-
-<br><br>
-
-Then, in the same directory as the Dockerfile, run the following command:
+Make that change and save the Dockerfile. Then, in the same directory as the Dockerfile, run the following command:
 
 ``` docker build . -t mykeycloak ```
 
 When the build is done, cd back up one level, i.e. to the root of the cloned project.
+
+<br>
 
 Before doing the next step: at the root of the cloned project, run this command:
 
@@ -113,3 +111,26 @@ Once this is completed, you should have a running Docker container called "mykey
 and you will be tailing the container logs. (It can also be helpful to have a second terminal window open on the same VM, and run the ```docker logs``` command there, while using the first terminal for other work on the VM.)
 
 
+<br><br>
+
+## Logging into Keycloak
+
+Using the DNS or Elastic IP of the VM, open up the webpage: 
+
+```https://[your VM's address]:8443/```
+
+The broswer should immediately present you with a warning that the site is unsafe. That's because your Docker build step included the creation of a self-signed certificate. Since you built it, and since it's assumed that only your home or office IP address was added to the EC2 Security Group Allow List, you should be safe telling the browser to accept and use this certificate.
+
+> If you have any questions or concerns about this, please speak with your management or IT/Security team before accepting and using this certificate.
+
+Once you get to the login page, enter the username and password you created for Keycloak. After logging in, you should be seeing the "Master Realm" of Keycloak.
+
+<br><br>
+
+## Next steps
+
+With practice, you can get used to quickly doing basic things like creating your own Realm, adding one or more Users, and adding one or more Clients.
+
+We will be covering those in the docs section right after the Grafana setup. However if you'd like to go have a preview of using Keycloak, I recommend watching [this video on youtube](https://www.youtube.com/watch?v=fvxQ8bW0vO8), or other enablement material of your choosing.
+
+If you want to move on to installing Grafana on your local machine, please proceed to [this page](../documentation/grafana-local-machine-setup.md).
