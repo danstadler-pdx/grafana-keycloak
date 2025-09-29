@@ -54,3 +54,10 @@ If running with the ```-d``` arg, you can tail the container logs using
 
 You should be able to log into the grafana UI at [this url](http://localhost:3000).
 
+
+<br><br>
+
+## Next steps
+
+Next we'll [set up a realm, user, and client](../documentation/keycloak-initial-configuration.md) in Keycloak.
+
