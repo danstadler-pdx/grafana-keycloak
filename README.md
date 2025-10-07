@@ -54,7 +54,7 @@ In addition, these instructions will include guidance to help you be sure that y
 
 [Grafana setup on your machine](./documentation/grafana-local-machine-setup.md)
 
-[Create a realm, a user, and a client in Keycloak](./documentation/keycloak-configuration.md)
+[Create a realm, a user, and a client in Keycloak](./documentation/keycloak-initial-configuration.md)
 
 [Configure Generic OAuth in Grafana](./documentation/grafana-configuration.md)
 
