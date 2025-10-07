@@ -82,3 +82,26 @@ Those values are:
 <br><br>
 ## Create a client (upload method)
 
+<br>
+
+We're going to leave this section a little terse for now; in short, you also have the option of defining Keycloak objects such as Clients in a JSON file, and then uploading that file in the UI (or even getting into the Keycloak CLI, which this repo probably won't cover).
+
+In the directory ```[project_root]/provisioning/keycloak```, there is a file called ```confidential-client-localhost-grafana.json.example```. You can make a copy of it without the ```.example``` ending; the resulting filename is already added to the .gitignore of this project, so it should be excluded from any git operations.
+
+In that file, you should be able to fill in a value for just this one field:
+
+```
+  "secret": "",
+```
+
+Save the file, and then try using it to upload the whole client for Grafana on your local machine. 
+
+You can also come back and try this again with the other .example file in the directory; it's related to an upcoming subject: using Hosted Grafana with your Keycloak instance. We haven't gotten there yet, so it's OK to skip for now.
+
+
+
+<br><br>
+
+## Next steps
+
+Next we'll [set up Generic OAuth](../documentation/grafana-initial-configuration.md) in Grafana.
