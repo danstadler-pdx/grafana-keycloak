@@ -49,4 +49,24 @@ Also note that we're assuming your realm is called "grafana-testing", as describ
 ```https://123.234.345.456:8443/realms/grafana-testing/protocol/openid-connect/userinfo```
 
 
+### Remaining fields:
+For the remainder of this testing, you can use the following settings:
+
+#### Allow sign-up
+```enabled```
+
+#### Auto login
+```disabled```
+
+
+<br>
+Save the form; you will be returned to the list of Auth providers (free free to re-open Generic OAuth if you want to view your current config).
+
+
+
+<br><br>
+
+## Next steps
+
+We're ready to start [testing Grafana Generic OAuth setup with Keycloak](../documentation/test-1.md).
 
