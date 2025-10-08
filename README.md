@@ -48,7 +48,7 @@ In addition, these instructions will include guidance to help you be sure that y
 
 <br>
 
-# Setting up the project
+## Use local Grafana
 
 [Keycloak setup on EC2](./documentation/keycloak-EC2-setup.md)
 
@@ -56,13 +56,17 @@ In addition, these instructions will include guidance to help you be sure that y
 
 [Create a realm, a user, and a client in Keycloak](./documentation/keycloak-initial-configuration.md)
 
-[Configure Generic OAuth in Grafana](./documentation/grafana-configuration.md)
+[Configure Generic OAuth in Grafana](./documentation/grafana-initial-configuration.md)
 
-[General testing](./documentation/general-testing.md)
+[Test local Grafana with Keycloak](./documentation/test-1.md)
 
-[Try switching to Grafana Cloud](./documentation/switch-to-grafana-cloud.md)
+<br>
 
+## Use Grafana Cloud
 
+[Switch to Grafana Cloud](./documentation/switch-to-grafana-cloud.md)
+
+[Test Cloud Grafana with Keycloak](./documentation/test-2.md)
 
 <br><br><br><br><br>
 
