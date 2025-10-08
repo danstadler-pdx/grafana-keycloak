@@ -62,9 +62,9 @@ In addition, these instructions will include guidance to help you be sure that y
 
 <br>
 
-## Use Grafana Cloud
+## Use Cloud Grafana
 
-[Switch to Grafana Cloud](./documentation/switch-to-grafana-cloud.md)
+[Switch to Cloud Grafana](./documentation/switch-to-grafana-cloud.md)
 
 [Test Cloud Grafana with Keycloak](./documentation/test-2.md)
 
