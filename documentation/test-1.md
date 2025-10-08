@@ -36,7 +36,7 @@ Keycloak is your OP; you are now logged in there, and also that login has been "
 - in a new tab in your incognito browswer window, paste what you just copied into the URL bar, and then append: 
 ```/realms/grafana-testing/account```.
 
-This URL should take you to the "Personal" page in Keycloak, which is one of the few areas of Keycloak that your end user should be able to see; i.e. they don't get the full Admin experience you've been using up to now.
+This URL should take you to the "Personal Info" page in Keycloak, which is one of the few areas of Keycloak that your end user should be able to see; i.e. they don't get the full Admin experience you've been using up to now.
 
 Having this page open in a separate incognito tab gives you the option of logging your end user out of Keycloak, so that you can try also logging that user out of Grafana, and trying the complete login process again. Your Admin sessions in your primary browser window should not be affected.
 
