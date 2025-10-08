@@ -16,6 +16,7 @@ These are the primary differences:
 
 This next section will talk first about the networking changes.
 
+<br>
 
 ## Networking changes
 
@@ -23,9 +24,11 @@ In the [Keycloak on EC2 instructions](../documentation/keycloak-EC2-setup.md), w
 
 ```for now just enable 22 (SSH) and 8443 (Custom TCP), both allowing your IP address ("My IP" in the AWS UI) and no other IP addresses.```
 
-So with Grafana on your local machine, the browser started at [http://localhost:3000](http://localhost:3000), redirected to Keycloak on your EC2 VM, and then redirected back to localhost. Subsequently, Grafana (the program itself) on localhost is able to make subsequent API calls to Keycloak on the EC2 VM. And your Security group had all the ports you needed: 22 (for SSH), and 8443 (for Keycloak), and both were limited to only be visible from your locataion ("My IP").
+So with Grafana on your local machine, the browser started at [http://localhost:3000](http://localhost:3000), redirected to Keycloak on your EC2 VM, and then redirected back to localhost. Subsequently, Grafana (the program itself) on localhost is able to make subsequent API calls to Keycloak on the EC2 VM.
 
-For Cloud Grafana to connect to Keycloak, you have a couple of options.
+Your EC2 Security group had all the ports you needed: 22 (for SSH), and 8443 (for Keycloak), and both were limited to only be visible from your locataion ("My IP").
+
+For Cloud Grafana to connect to Keycloak, you have a couple of options to pick from.
 
 <br>
 
@@ -53,7 +56,7 @@ The complete IP list is not small; however if you know which cluster your Cloud 
 
 Depending on your region, you may have a relatively large number of IPs to add to your allowlist. You might want to check out using "Managed Prefix Lists" on AWS, where you can set up a long list of IPs, and then add them all in one step in your Security Group.
 
-
+<br>
 
 ## Making a second client in Keycloak
 
@@ -67,6 +70,7 @@ It's nice to keep your first client available for testing a local instance of Gr
 
 As mentioned on that page, you can also start using a JSON file supplied with this repo, for creating the Cloud Grafana client. These instructions won't go into more detail on that for now, but it's pretty easy to figure out.
 
+<br>
 
 ## Setting up Generic OAuth in Cloud Grafana
 
@@ -78,6 +82,6 @@ This is also almost the identical process as you followed with Grafana on your l
 
 ## Next steps
 
-We're ready test [logging into Cloud Grafana with Keycloak](../documentation/test-2.md).
+We're ready to test [logging into Cloud Grafana with Keycloak](../documentation/test-2.md).
 
 
