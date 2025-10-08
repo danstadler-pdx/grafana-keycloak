@@ -60,9 +60,8 @@ In addition, these instructions will include guidance to help you be sure that y
 
 [General testing](./documentation/general-testing.md)
 
-[Try breaking some things](./documentation/try-breaking-some-things.md)
-
 [Try switching to Grafana Cloud](./documentation/switch-to-grafana-cloud.md)
+
 
 
 <br><br><br><br><br>
