@@ -48,7 +48,7 @@ In addition, these instructions will include guidance to help you be sure that y
 
 <br>
 
-## Use local Grafana
+## Use local Grafana (start here) 
 
 [Keycloak setup on EC2](./documentation/keycloak-EC2-setup.md)
 
