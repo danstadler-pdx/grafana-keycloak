@@ -19,15 +19,3 @@ services:
 
 volumes:
   keycloak-data: {}
-
-  # keycloak-insecure:
-  #   image: quay.io/keycloak/keycloak:latest
-  #   container_name: keycloak
-  #   command: start-dev
-  #   ports:
-  #     - '8080:8080'
-  #   volumes:
-  #     - keycloak-data:/opt/keycloak/data/
-  #   environment:
-  #     KC_BOOTSTRAP_ADMIN_USERNAME: 
-  #     KC_BOOTSTRAP_ADMIN_PASSWORD: 
